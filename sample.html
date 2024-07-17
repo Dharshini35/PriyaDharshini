@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="layout.html" method="post">
+        <fieldset style="width: 50%;">
+          <legend>Google form</legend>
+          <table>
+            <tr>
+                <td><label for="usname">Username</label></td>
+                <td>:</td>
+                <td><input type="text" id="usname" value="" name="username" placeholder="enter your name" required></td>
+            </tr>
+            <tr>
+                <td><label for="color">color</label></td>
+                <td>:</td>
+                <td><input type="color" id="color" value="" name="color" placeholder="enter your color"></td>
+            </tr>
+            <tr>
+                <td><label for="mail">E-mail</label></td>
+                <td>:</td>
+                <td><input type="mail" id="mail" value="" name="Email" placeholder="enter your mail" required></td>
+
+            </tr>
+            <td><label for="date">Date</label></td>
+                <td>:</td>
+                <td><input type="date" id="date" value="" name="date" placeholder="today's date" ></td>
+            <tr>
+                <td><label for="gen">Gender</label></td>
+                <td>:</td>
+                <td><input type="radio" id="male" name="gen" value="male">M</td>
+                <td><input type="radio" id="female" name="gen" value="female">F</td>
+                
+            </tr>
+            <tr>
+                <td><label for="gen">Language known</label></td>
+                <td>:</td>
+                <td><input type="checkbox" id="html" name="lang" value="html">HTML</td>
+                <td><input type="checkbox" id="css" name="lang" value="css">CSS</td>
+                <td><input type="checkbox" id="js" name="lang" value="js">JS</td>
+            </tr>
+            <tr>
+                <td><label for="dn">Domain</label></td>
+                <td>:</td>
+                <td><select>
+                  <option value="frontend">Frontend</option>
+                  <option value="Middleware">Middleware</option>
+                  <option value="backend">Frontend</option>
+                  </select>
+            </td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="submit"></td>
+                <td><input type="reset" value="reset"></td>
+            </tr>
+          </table>
+        </fieldset>
+    </form>
+</body>
+</html>
