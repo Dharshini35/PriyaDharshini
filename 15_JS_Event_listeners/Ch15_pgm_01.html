@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+    <style>
+        .numbers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.even {
+    background-color: lightgreen;
+}
+
+.odd {
+    background-color: lightyellow;
+}
+
+.prime {
+    background-color: tomato;
+}
+
+    </style> <!-- Optional: Link to CSS for styling -->
+</head>
+<body>
+    <div class="numbers-container" id="numbers-container">
+        <!-- Numbers will be dynamically added here -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const numbersContainer = document.getElementById('numbers-container');
+    
+    // Function to generate numbers from 1 to 100 and mark them
+    function generateNumbers() {
+        // Clear previous numbers
+        numbersContainer.innerHTML = '';
+
+        // Generate numbers from 1 to 100
+        for (let number = 1; number <= 100; number++) {
+            const numberElement = document.createElement('div');
+            numberElement.textContent = number;
+            numberElement.classList.add('number');
+            
+            // Determine and apply background color based on number properties
+            if (number % 2 === 0) {
+                numberElement.classList.add('even');
+            } else {
+                numberElement.classList.add('odd');
+            }
+            
+            if (isPrime(number)) {
+                numberElement.classList.add('prime');
+            }
+            
+            // Append the number element to the container
+            numbersContainer.appendChild(numberElement);
+        }
+    }
+
+    // Function to check if a number is prime
+    function isPrime(num) {
+        if (num <= 1) return false;
+        if (num === 2) return true; // 2 is prime
+        if (num % 2 === 0) return false; // other even numbers are not prime
+        
+        // Check for odd factors from 3 up to the square root of num
+        for (let i = 3; i <= Math.sqrt(num); i += 2) {
+            if (num % i === 0) return false;
+        }
+        
+        return true;
+    }
+
+    // Generate numbers initially when the page loads
+    generateNumbers();
+});
+
+    </script> <!-- Link to JavaScript file -->
+</body>
+</html>

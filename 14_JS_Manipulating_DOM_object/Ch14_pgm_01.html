@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Styling</title>
+    <style>
+        .number-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .number {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .even {
+            background-color: lightgreen;
+        }
+        .odd {
+            background-color: lightyellow;
+        }
+        .prime {
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <div class="number-container" id="number-container">
+        <!-- Numbers will be dynamically added here -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const numberContainer = document.getElementById('number-container');
+    
+    // Create numbers from 1 to 100 dynamically
+    for (let number = 1; number <= 100; number++) {
+        const numberElement = document.createElement('div');
+        numberElement.textContent = number;
+        numberElement.classList.add('number');
+        
+        // Determine and apply background color based on number properties
+        if (number % 2 === 0) {
+            numberElement.classList.add('even');
+        } else {
+            numberElement.classList.add('odd');
+        }
+        
+        if (isPrime(number)) {
+            numberElement.classList.add('prime');
+        }
+        
+        // Append the number element to the container
+        numberContainer.appendChild(numberElement);
+    }
+});
+
+// Function to check if a number is prime
+function isPrime(num) {
+    if (num <= 1) return false;
+    if (num === 2) return true; // 2 is prime
+    if (num % 2 === 0) return false; // other even numbers are not prime
+    
+    // Check for odd factors from 3 up to the square root of num
+    for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) return false;
+    }
+    
+    return true;
+}
+
+    </script> <!-- Link to JavaScript file -->
+</body>
+</html>

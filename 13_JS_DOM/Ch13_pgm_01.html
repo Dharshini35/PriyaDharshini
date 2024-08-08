@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Operations</title>
+</head>
+<body>
+    <p>First Paragraph</p>
+    <p>Second Paragraph</p>
+    <p>Third Paragraph</p>
+    <p>Fourth Paragraph</p>
+
+    <script>
+        // 1. Get the first paragraph by using document.querySelector(tagname) and tag name
+const firstParagraphByTagName = document.querySelector('p');
+console.log("First Paragraph by tag name:", firstParagraphByTagName);
+
+// 2. Get each of the paragraphs by their id using document.querySelector('#id')
+const firstParagraphById = document.querySelector('#first');
+const secondParagraphById = document.querySelector('#second');
+const thirdParagraphById = document.querySelector('#third');
+const fourthParagraphById = document.querySelector('#fourth');
+console.log("Paragraphs by id:", firstParagraphById, secondParagraphById, thirdParagraphById, fourthParagraphById);
+
+// 3. Get all the paragraphs as a nodeList using document.querySelectorAll(tagname)
+const allParagraphs = document.querySelectorAll('p');
+console.log("All paragraphs as nodeList:", allParagraphs);
+
+// 4. Loop through the nodeList and get the text content of each paragraph
+allParagraphs.forEach((paragraph, index) => {
+    console.log(`Text content of paragraph ${index + 1}:`, paragraph.textContent);
+});
+
+// 5. Set text content to the fourth paragraph
+const fourthParagraph = document.querySelector('p:nth-child(4)');
+fourthParagraph.textContent = "Fourth Paragraph";
+
+// 6. Set id and class attribute for all the paragraphs using different attribute setting methods
+allParagraphs.forEach((paragraph, index) => {
+    paragraph.id = `paragraph-${index + 1}`;
+    paragraph.classList.add(`paragraph-class-${index + 1}`);
+});
+
+
+// Change style of each paragraph
+allParagraphs.forEach((paragraph, index) => {
+    paragraph.style.color = index % 2 === 0 ? 'blue' : 'green';
+    paragraph.style.backgroundColor = index % 2 === 0 ? 'lightgray' : 'lightyellow';
+    paragraph.style.border = '1px solid black';
+    paragraph.style.fontSize = '16px';
+    paragraph.style.fontFamily = 'Arial, sans-serif';
+});
+
+
+
+// Set color based on index
+allParagraphs.forEach((paragraph, index) => {
+    if (index === 0 || index === 2) {
+        paragraph.style.color = 'green';
+    } else {
+        paragraph.style.color = 'red';
+    }
+});
+
+// 3. Set text content, id, and class to each paragraph (already set in Level 1)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript for Everyone:DOM</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to optional CSS for additional styling -->
+</head>
+<body>
+    <div class="wrapper">
+        <h1>JavaScript Challenges in 2024</h1>
+        <h2>30DaysOfJavaScript Challenge</h2>
+        <ul>
+            <li id="python">30DaysOfPython Challenge Done</li>
+            <li id="javascript">30DaysOfJavaScript Challenge Ongoing</li>
+            <li id="react">30DaysOfReact Challenge Coming</li>
+            <li id="fullstack">30DaysOfFullStack Challenge Coming</li>
+            <li id="dataanalysis">30DaysOfDataAnalysis Challenge Coming</li>
+            <li id="reactnative">30DaysOfReactNative Challenge Coming</li>
+            <li id="machinelearning">30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+        <p id="year">2024</p>
+        <p id="datetime">July 18, 2024 12:00:00</p>
+    </div>
+
+    <script>
+        // 1. The year color is changing every 1 second
+const yearElement = document.getElementById('year');
+setInterval(() => {
+    yearElement.style.color = getRandomColor();
+}, 1000);
+
+// Function to generate random color
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// 2. The date and time background color is changing every 1 second
+const datetimeElement = document.getElementById('datetime');
+setInterval(() => {
+    datetimeElement.style.backgroundColor = getRandomColor();
+}, 1000);
+
+// 3. Completed challenge has background green
+const pythonChallenge = document.getElementById('python');
+pythonChallenge.style.backgroundColor = 'green';
+
+// 4. Ongoing challenge has background yellow
+const javascriptChallenge = document.getElementById('javascript');
+javascriptChallenge.style.backgroundColor = 'yellow';
+
+// 5. Coming challenges have background red
+const comingChallenges = document.querySelectorAll('ul li[id^="react"]');
+comingChallenges.forEach(challenge => {
+    challenge.style.backgroundColor = 'red';
+});
+
+    </script> <!-- Link to JavaScript file for functionality -->
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keycode Display</title>
+    <style>
+        .keyboard-container {
+    display: grid;
+    grid-template-columns: repeat(13, 50px); /* Adjust based on number of keys */
+    gap: 5px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.key:hover {
+    background-color: #e0e0e0;
+}
+
+    </style> <!-- Optional: Link to CSS for styling -->
+</head>
+<body>
+    <div class="keyboard-container" id="keyboard-container">
+        <!-- Keyboard keys will be dynamically added here -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const keyboardContainer = document.getElementById('keyboard-container');
+    
+    // Function to generate keyboard keys
+    function generateKeyboard() {
+        const keyboardKeys = [
+            { key: 'Escape', code: '27' },
+            { key: 'F1', code: '112' },
+            { key: 'F2', code: '113' },
+            { key: 'F3', code: '114' },
+            { key: 'F4', code: '115' },
+            { key: 'F5', code: '116' },
+            { key: 'F6', code: '117' },
+            { key: 'F7', code: '118' },
+            { key: 'F8', code: '119' },
+            { key: 'F9', code: '120' },
+            { key: 'F10', code: '121' },
+            { key: 'F11', code: '122' },
+            { key: 'F12', code: '123' },
+            { key: 'Backquote', code: '192' },
+            { key: 'Digit1', code: '49' },
+            { key: 'Digit2', code: '50' },
+            { key: 'Digit3', code: '51' },
+            { key: 'Digit4', code: '52' },
+            { key: 'Digit5', code: '53' },
+            { key: 'Digit6', code: '54' },
+            { key: 'Digit7', code: '55' },
+            { key: 'Digit8', code: '56' },
+            { key: 'Digit9', code: '57' },
+            { key: 'Digit0', code: '48' },
+            { key: 'Minus', code: '189' },
+            { key: 'Equal', code: '187' },
+            { key: 'Backspace', code: '8' },
+            { key: 'Tab', code: '9' },
+            { key: 'KeyQ', code: '81' },
+            { key: 'KeyW', code: '87' },
+            { key: 'KeyE', code: '69' },
+            { key: 'KeyR', code: '82' },
+            { key: 'KeyT', code: '84' },
+            { key: 'KeyY', code: '89' },
+            { key: 'KeyU', code: '85' },
+            { key: 'KeyI', code: '73' },
+            { key: 'KeyO', code: '79' },
+            { key: 'KeyP', code: '80' },
+            { key: 'BracketLeft', code: '219' },
+            { key: 'BracketRight', code: '221' },
+            { key: 'Backslash', code: '220' },
+            { key: 'CapsLock', code: '20' },
+            { key: 'KeyA', code: '65' },
+            { key: 'KeyS', code: '83' },
+            { key: 'KeyD', code: '68' },
+            { key: 'KeyF', code: '70' },
+            { key: 'KeyG', code: '71' },
+            { key: 'KeyH', code: '72' },
+            { key: 'KeyJ', code: '74' },
+            { key: 'KeyK', code: '75' },
+            { key: 'KeyL', code: '76' },
+            { key: 'Semicolon', code: '186' },
+            { key: 'Quote', code: '222' },
+            { key: 'Enter', code: '13' },
+            { key: 'ShiftLeft', code: '16' },
+            { key: 'KeyZ', code: '90' },
+            { key: 'KeyX', code: '88' },
+            { key: 'KeyC', code: '67' },
+            { key: 'KeyV', code: '86' },
+            { key: 'KeyB', code: '66' },
+            { key: 'KeyN', code: '78' },
+            { key: 'KeyM', code: '77' },
+            { key: 'Comma', code: '188' },
+            { key: 'Period', code: '190' },
+            { key: 'Slash', code: '191' },
+            { key: 'ShiftRight', code: '16' },
+            { key: 'ControlLeft', code: '17' },
+            { key: 'MetaLeft', code: '91' },
+            { key: 'AltLeft', code: '18' },
+            { key: 'Space', code: '32' },
+            { key: 'AltRight', code: '18' },
+            { key: 'ControlRight', code: '17' },
+            { key: 'ArrowUp', code: '38' },
+            { key: 'ArrowLeft', code: '37' },
+            { key: 'ArrowDown', code: '40' },
+            { key: 'ArrowRight', code: '39' }
+        ];
+
+        // Iterate through keyboardKeys array and create key elements
+        keyboardKeys.forEach(keyObj => {
+            const keyElement = document.createElement('div');
+            keyElement.textContent = keyObj.key;
+            keyElement.classList.add('key');
+            keyElement.dataset.code = keyObj.code;
+            keyboardContainer.appendChild(keyElement);
+
+            // Event listener to display keycode on click
+            keyElement.addEventListener('click', function() {
+                alert(`Key: ${keyObj.key}\nCode: ${keyObj.code}`);
+            });
+        });
+    }
+
+    // Generate keyboard keys initially when the page loads
+    generateKeyboard();
+});
+
+    </script> <!-- Link to JavaScript file -->
+</body>
+</html>
